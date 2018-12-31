@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>
+        MealPlan Tracker
+    </h1>
+    <h2>
+        Don't know if your meal plan will last?<br>Enter how much money your
+        meal plan currently has and how much you typically spend every day.
+        We will do the rest of the work.
+    </h2>
+
+    <div class="home-form">
+    {% if form %}
+        {{ wtf.quick_form(form) }}
+    {% endif %}
+
+    <br>
+    {% if output %}
+    <p>
+        {{ output }}
+    </p>
+    {% endif %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>
+        <span id="user-name">{{ user.username }}'s Profile:<span>
+    </h1>
+    <div id="user-body">
+        {% if meal_records %}
+            <h3>Most Recent MP Amount: ${{ recent_mp_amount }}</h3>
+            <h3>Estimated End Date: {{ moment(estimated_end).format('ll') }}</h3>
+            <br>
+            <h4>Past Records:</h4>
+            {% for meal_record in meal_records %}
+                <table class="table">
+                    <tr>
+                        <td width="256px">
+                            Date: <br>{{ moment(meal_record.date).format('L') }}
+                        </td>
+                        <td>
+                            MealPlan Amount: <br>${{ meal_record.mp_amount }}
+                        </td>
+                        <td>
+                            Spent: <br>${{ meal_record.money_spent }}
+                        </td>
+                        <td>
+                            Gain/Loss: <br>{{ meal_record.net_cash }}
+                        </td>
+                    </tr>
+                </table>
+            {% endfor %}
+
+            <nav aria-label="...">
+                <ul class="pager">
+                    <li class="previous{% if not prev_url %} disabled{% endif %}">
+                        <a href="{{ prev_url or '#' }}"><span aria-hidden="true">&larr;</span> Newer records
+                        </a>
+                    </li>
+                    <li class="next{% if not next_url %} disabled{% endif %}">
+                        <a href="{{ next_url or '#' }}">Older records <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        <h5>Gain/Loss refers to how much money you save or need to add based on your daily spending.
+            <br>
+            <hr>
+            This graph plots your Gain/Loss based on your daily average on the 5 past dates. <br>This visual then, lets you see
+            if your daily spending will yield a gain/loss in the long-term.
+        </h5>
+        <br>
+        <div style="max-width:900px; margin: 0 auto;">{{ div_graph }}</div>
+        {% else %}
+            <h2>
+                You have no previous data.<br>
+                Please add your first meal plan record below:
+            </h2>
+        {% endif %}
+        <hr>
+        {% if form %}
+            <h4>Enter Today's Data!</h4>
+            {{ wtf.quick_form(form) }}
+        {% endif %}
+    </div>
+
+{% endblock %}
