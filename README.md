@@ -2,8 +2,8 @@
 
 The MealPlan Tracker is a Python web application aimed at helping college students track their meal plan spending habits in order to minimize personal money loss. The application was built using the Flask framework with other extensions and packages, Bootstrap templates with additional styling (HTML/CSS) and the ORM SQLALchemy working with a Postgres database for deployment. The app is currently live on Heroku: http://mp-tracker.herokuapp.com/home
 
-<img src="https://i.imgur.com/a8kAjmm.png">
-<img src="https://i.imgur.com/LwK2HZZ.png">
+<img src="https://i.imgur.com/gfqbuDi.png">
+<img src="https://i.imgur.com/BLw0Fcg.png">
 <img src="https://i.imgur.com/5o2cs25.png">
 <img src="https://i.imgur.com/MvPBUBg.png">
 
@@ -29,5 +29,5 @@ The user’s profile contains a personal dashboard based on their data. It is de
 
 By highlighting this piece of information, the gain/loss field becomes a key detail to the user. If it is positive, then that lets you know that your meal plan will last. If it is negative, then that number is how you much you’d have to add to your meal plan.
 
-<img src="https://i.imgur.com/Edu25sj.png">
-<img src="https://i.imgur.com/edP03Ti.png">
+<img src="https://i.imgur.com/EIlScSV.png">
+<img src="https://i.imgur.com/9ElcAbx.png">
